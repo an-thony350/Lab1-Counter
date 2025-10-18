@@ -20,17 +20,23 @@ int main(int argc, char **argv, char **env) {
     top -> rst = 1;
     top -> en = 0;
 
+    int counter = 0;
     //run simulation for many clock cycles
     for (i = 0; i < 300; i++) {
         // dump variables into VCD file and toggle clock
-        for (clk = 0; clk < 2; clk++) {
-            tfp -> dump(2 * i + clk);
-            top -> clk = !top -> clk;
-            top -> eval();
+        if (i >= 8 && counter <= 3){
+            counter++;
+        } else{
+            for (clk = 0; clk < 2; clk++) {
+                tfp -> dump(2 * i + clk);
+                top -> clk = !top -> clk;
+                top -> eval();
+            }
+            
+            top -> rst = (i < 2) | (i == 15);  
+            top -> en = (i > 4);
+            if (Verilated::gotFinish()) exit(0);
         }
-        top -> rst = (i < 2) | (i == 15);  
-        top -> en = (i > 4);
-        if (Verilated::gotFinish()) exit(0);
     }
     tfp -> close();
     exit(0);
