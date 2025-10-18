@@ -2,7 +2,7 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 #include "vbuddy.cpp"
-#include
+
 int main(int argc, char **argv, char **env) {
     int i;
     int clk;
@@ -27,7 +27,7 @@ int main(int argc, char **argv, char **env) {
     top -> clk = 1;
     top -> rst = 1;
     top -> ld  = 0;
-    top -> v = 3;
+    top -> v = 100;
 
 
     //run simulation for many clock cycles
@@ -39,7 +39,7 @@ int main(int argc, char **argv, char **env) {
             top -> eval();
         }
 
-/*
+
         // send count value to Vbuddy
         vbdHex(4, (int(top -> count) >> 16) & 0xF);
         vbdHex(3, (int(top -> count) >> 8) & 0xF);
@@ -48,8 +48,8 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i + 1);
         // end of Vbuddy output section
 
-*/
-        vbdPlot(int(top->count), 0, 256);
+
+        //vbdPlot(int(top->count), 0, 256);
         // button enables counter:
         top -> ld = vbdFlag();
 
