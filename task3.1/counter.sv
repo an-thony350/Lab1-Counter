@@ -11,5 +11,5 @@ module counter #(
 
 always_ff @ (posedge ld)
   if (rst) count <= {WIDTH{1'b0}};
-  else     count <= ld ? count + v : count;
+  else     count <= count + v;
 endmodule
