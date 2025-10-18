@@ -20,6 +20,9 @@ int main(int argc, char **argv, char **env) {
     if (vbdOpen() != 1) return (-1);
     vbdHeader("Lab 1: Counter");
 
+    // set button to ONE-SHOT
+    vbdSetMode(1);
+
     // initialize simulation inputs
     top -> clk = 1;
     top -> rst = 1;
@@ -50,7 +53,6 @@ int main(int argc, char **argv, char **env) {
 
         // change input signals
         top -> rst = (i < 2) | (i == 15);  
-        // top -> en = (i > 4);
         if (Verilated::gotFinish()) exit(0);
     }
     // final model cleanup
