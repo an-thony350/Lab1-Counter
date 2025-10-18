@@ -26,7 +26,7 @@ int main(int argc, char **argv, char **env) {
     top -> en = 0;
 
     //run simulation for many clock cycles
-    for (i = 0; i < 300; i++) {
+    for (i = 0; i < 1000; i++) {
         // dump variables into VCD file and toggle clock
         for (clk = 0; clk < 2; clk++) {
             tfp -> dump(2 * i + clk);
@@ -34,6 +34,7 @@ int main(int argc, char **argv, char **env) {
             top -> eval();
         }
 
+/*
         // send count value to Vbuddy
         vbdHex(4, (int(top -> count) >> 16) & 0xF);
         vbdHex(3, (int(top -> count) >> 8) & 0xF);
@@ -42,6 +43,8 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i + 1);
         // end of Vbuddy output section
 
+*/
+        vbdPlot(int(top->count), 0, 256);
         // button enables counter:
         top->en = vbdFlag();
 
