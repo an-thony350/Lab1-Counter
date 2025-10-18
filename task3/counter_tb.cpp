@@ -2,7 +2,7 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 #include "vbuddy.cpp"
-
+#include
 int main(int argc, char **argv, char **env) {
     int i;
     int clk;
@@ -26,6 +26,8 @@ int main(int argc, char **argv, char **env) {
     // initialize simulation inputs
     top -> clk = 1;
     top -> rst = 1;
+    top -> ld  = 0;
+    top -> v = 3;
 
 
     //run simulation for many clock cycles
@@ -49,7 +51,7 @@ int main(int argc, char **argv, char **env) {
 */
         vbdPlot(int(top->count), 0, 256);
         // button enables counter:
-        en = vbdFlag();
+        top -> ld = vbdFlag();
 
         // change input signals
         top -> rst = (i < 2) | (i == 15);  
