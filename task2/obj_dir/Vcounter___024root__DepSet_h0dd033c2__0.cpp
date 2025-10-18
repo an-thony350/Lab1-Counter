@@ -17,7 +17,10 @@ void Vcounter___024root___eval_triggers__act(Vcounter___024root* vlSelf) {
     // Body
     vlSelfRef.__VactTriggered.setBit(0U, ((IData)(vlSelfRef.clk) 
                                           & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__clk__0))));
+    vlSelfRef.__VactTriggered.setBit(1U, ((IData)(vlSelfRef.en) 
+                                          & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__en__0))));
     vlSelfRef.__Vtrigprevexpr___TOP__clk__0 = vlSelfRef.clk;
+    vlSelfRef.__Vtrigprevexpr___TOP__en__0 = vlSelfRef.en;
 #ifdef VL_DEBUG
     if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {
         Vcounter___024root___dump_triggers__act(vlSelf);

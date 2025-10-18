@@ -11,6 +11,7 @@ VL_ATTR_COLD void Vcounter___024root___eval_static(Vcounter___024root* vlSelf) {
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.__Vtrigprevexpr___TOP__clk__0 = vlSelfRef.clk;
+    vlSelfRef.__Vtrigprevexpr___TOP__en__0 = vlSelfRef.en;
 }
 
 VL_ATTR_COLD void Vcounter___024root___eval_initial(Vcounter___024root* vlSelf) {
@@ -43,6 +44,9 @@ VL_ATTR_COLD void Vcounter___024root___dump_triggers__act(Vcounter___024root* vl
     if ((1ULL & vlSelfRef.__VactTriggered.word(0U))) {
         VL_DBG_MSGF("         'act' region trigger index 0 is active: @(posedge clk)\n");
     }
+    if ((2ULL & vlSelfRef.__VactTriggered.word(0U))) {
+        VL_DBG_MSGF("         'act' region trigger index 1 is active: @(posedge en)\n");
+    }
 }
 #endif  // VL_DEBUG
 
@@ -58,6 +62,9 @@ VL_ATTR_COLD void Vcounter___024root___dump_triggers__nba(Vcounter___024root* vl
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(posedge clk)\n");
     }
+    if ((2ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+        VL_DBG_MSGF("         'nba' region trigger index 1 is active: @(posedge en)\n");
+    }
 }
 #endif  // VL_DEBUG
 
@@ -72,4 +79,5 @@ VL_ATTR_COLD void Vcounter___024root___ctor_var_reset(Vcounter___024root* vlSelf
     vlSelf->en = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7710216835639188562ull);
     vlSelf->count = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 10730142128712957955ull);
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9526919608049418986ull);
+    vlSelf->__Vtrigprevexpr___TOP__en__0 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6100141758336784011ull);
 }

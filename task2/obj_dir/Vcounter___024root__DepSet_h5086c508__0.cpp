@@ -18,7 +18,7 @@ void Vcounter___024root___eval_nba(Vcounter___024root* vlSelf) {
     Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+    if ((3ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vcounter___024root___nba_sequent__TOP__0(vlSelf);
     }
 }
@@ -43,7 +43,7 @@ bool Vcounter___024root___eval_phase__act(Vcounter___024root* vlSelf) {
     Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
-    VlTriggerVec<1> __VpreTriggered;
+    VlTriggerVec<2> __VpreTriggered;
     CData/*0:0*/ __VactExecute;
     // Body
     Vcounter___024root___eval_triggers__act(vlSelf);

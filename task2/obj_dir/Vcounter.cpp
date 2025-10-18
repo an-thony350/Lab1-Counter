@@ -11,8 +11,8 @@ Vcounter::Vcounter(VerilatedContext* _vcontextp__, const char* _vcname__)
     : VerilatedModel{*_vcontextp__}
     , vlSymsp{new Vcounter__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
-    , rst{vlSymsp->TOP.rst}
     , en{vlSymsp->TOP.en}
+    , rst{vlSymsp->TOP.rst}
     , count{vlSymsp->TOP.count}
     , rootp{&(vlSymsp->TOP)}
 {
