@@ -26,7 +26,7 @@ int main(int argc, char **argv, char **env) {
     // initialize simulation inputs
     top -> clk = 1;
     top -> rst = 1;
-    top -> ld  = 0;
+    top -> en  = 0;
     top -> v = 1;
 
 
@@ -41,17 +41,17 @@ int main(int argc, char **argv, char **env) {
 
 
         // send count value to Vbuddy
-        vbdHex(4, (int(top -> count) >> 16) & 0xF);
-        vbdHex(3, (int(top -> count) >> 8) & 0xF);
-        vbdHex(2, (int(top -> count) >> 4) & 0xF);
-        vbdHex(1, int(top -> count) & 0xF);
+        vbdHex(4, (int(top -> bcd) >> 16) & 0xF);
+        vbdHex(3, (int(top -> bcd) >> 8) & 0xF);
+        vbdHex(2, (int(top -> bcd) >> 4) & 0xF);
+        vbdHex(1, int(top -> bcd) & 0xF);
         vbdCycle(i + 1);
         // end of Vbuddy output section
 
 
         //vbdPlot(int(top->count), 0, 256);
         // button enables counter:
-        top -> ld = vbdFlag();
+        top -> en = vbdFlag();
 
         // change input signals
         top -> rst = (i < 2) | (i == 15);  
