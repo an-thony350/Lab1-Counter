@@ -42,9 +42,12 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i + 1);
         // end of Vbuddy output section
 
+        // button enables counter:
+        top->en = vbdFlag();
+
         // change input signals
         top -> rst = (i < 2) | (i == 15);  
-        top -> en = (i > 4);
+        // top -> en = (i > 4);
         if (Verilated::gotFinish()) exit(0);
     }
     // final model cleanup
