@@ -20,7 +20,7 @@ int main(int argc, char **argv, char **env) {
     top -> rst = 1;
     top -> en = 0;
 
-    int counter = 0;
+    int counter = 1;
     //run simulation for many clock cycles
     for (i = 0; i < 300; i++) {
         // dump variables into VCD file and toggle clock
