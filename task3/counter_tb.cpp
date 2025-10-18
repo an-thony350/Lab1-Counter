@@ -6,7 +6,7 @@
 int main(int argc, char **argv, char **env) {
     int i;
     int clk;
-
+    int en;
     Verilated::commandArgs(argc, argv);
     // init top verilog instance
     Vcounter* top = new Vcounter;
@@ -26,7 +26,7 @@ int main(int argc, char **argv, char **env) {
     // initialize simulation inputs
     top -> clk = 1;
     top -> rst = 1;
-    top -> en = 0;
+
 
     //run simulation for many clock cycles
     for (i = 0; i < 1000; i++) {
@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **env) {
 */
         vbdPlot(int(top->count), 0, 256);
         // button enables counter:
-        top->en = vbdFlag();
+        en = vbdFlag();
 
         // change input signals
         top -> rst = (i < 2) | (i == 15);  
