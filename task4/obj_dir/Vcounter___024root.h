@@ -7,10 +7,9 @@
 
 #include "verilated.h"
 
-
 class Vcounter__Syms;
 
-class alignas(VL_CACHE_LINE_BYTES) Vcounter___024root final : public VerilatedModule {
+class Vcounter___024root final : public VerilatedModule {
   public:
 
     // DESIGN SPECIFIC STATE
@@ -20,27 +19,21 @@ class alignas(VL_CACHE_LINE_BYTES) Vcounter___024root final : public VerilatedMo
     VL_IN8(v,7,0);
     CData/*7:0*/ top__DOT__count;
     CData/*7:0*/ top__DOT__myCounter__DOT__v;
-    CData/*0:0*/ __VstlFirstIteration;
-    CData/*0:0*/ __Vtrigprevexpr___TOP__en__0;
-    CData/*0:0*/ __VactContinue;
+    CData/*0:0*/ __Vclklast__TOP__en;
     VL_OUT16(bcd,11,0);
     IData/*19:0*/ top__DOT__myDecoder__DOT__result;
-    IData/*31:0*/ __VactIterCount;
-    VlTriggerVec<1> __VstlTriggered;
-    VlTriggerVec<1> __VactTriggered;
-    VlTriggerVec<1> __VnbaTriggered;
 
     // INTERNAL VARIABLES
     Vcounter__Syms* const vlSymsp;
 
     // CONSTRUCTORS
-    Vcounter___024root(Vcounter__Syms* symsp, const char* v__name);
+    Vcounter___024root(Vcounter__Syms* symsp, const char* name);
     ~Vcounter___024root();
     VL_UNCOPYABLE(Vcounter___024root);
 
     // INTERNAL METHODS
     void __Vconfigure(bool first);
-};
+} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 
 #endif  // guard

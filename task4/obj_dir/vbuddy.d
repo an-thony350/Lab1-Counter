@@ -1,1 +1,0 @@
-vbuddy.o: ../vbuddy.cpp

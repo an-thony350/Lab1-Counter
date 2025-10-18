@@ -10,6 +10,6 @@ module counter #(
 );
 
 always_ff @ (posedge en)
-  if (rst) count <= {WIDTH{1'b0}};
-  else     count <= count + v;
+  if (rst) count <= v;
+  else     count <= count + 1'b1;
 endmodule
