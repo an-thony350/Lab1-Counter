@@ -33,7 +33,9 @@ int main(int argc, char **argv, char **env) {
             top -> clk = !top -> clk;
             top -> eval();
         }
+    vbdSetMode(0);
 
+        
 /*
         // send count value to Vbuddy
         vbdHex(4, (int(top -> count) >> 16) & 0xF);

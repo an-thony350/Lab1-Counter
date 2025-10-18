@@ -14,11 +14,10 @@ class Vcounter___024root final : public VerilatedModule {
 
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
-    VL_IN8(en,0,0);
     VL_IN8(rst,0,0);
+    VL_IN8(en,0,0);
     VL_OUT8(count,7,0);
     CData/*0:0*/ __Vclklast__TOP__clk;
-    CData/*0:0*/ __Vclklast__TOP__en;
 
     // INTERNAL VARIABLES
     Vcounter__Syms* const vlSymsp;
